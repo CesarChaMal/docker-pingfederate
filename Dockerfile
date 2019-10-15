@@ -3,8 +3,6 @@ MAINTAINER ilanyu <lanyu19950316@gmail.com>
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
-WORKDIR /usr/local
-
 RUN apk add --update --no-cache ca-certificates curl bash
 
 RUN curl -SL https://s3.amazonaws.com/pingone/public_downloads/pingfederate/9.3.1/pingfederate-9.3.1.tar.gz | tar -zxC /usr/local/ && \
@@ -12,9 +10,8 @@ RUN curl -SL https://s3.amazonaws.com/pingone/public_downloads/pingfederate/9.3.
     rm -rf pingfederate-9.3.1
 
 RUN curl -SL -o /usr/local/OAuthPlayground-4.2.zip https://github.com/ilanyu/docker-pingfederate/releases/download/kit/OAuthPlayground-4.2.zip && \
-    unzip /usr/local/OAuthPlayground-4.2.zip && \
-    mv /usr/local/OAuthPlayground-4.2/dist/deploy/* /usr/local/pingfederate-1/server/default/deploy/ && \
-    mv /usr/local/OAuthPlayground-4.2/dist/conf/* /usr/local/pingfederate-1/server/default/conf/ && \
+    unzip /usr/local/OAuthPlayground-4.2.zip -d /usr/local/ && \
+    cp -rf /usr/local/OAuthPlayground-4.2/dist/* /usr/local/pingfederate-1/server/default/ && \
     rm -rf /usr/local/OAuthPlayground-4.2.zip && \
     rm -rf /usr/local/OAuthPlayground-4.2
 
