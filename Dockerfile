@@ -3,6 +3,8 @@ MAINTAINER ilanyu <lanyu19950316@gmail.com>
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
+WORKDIR /usr/local
+
 RUN apk add --update --no-cache ca-certificates curl bash
 
 RUN curl -SL https://s3.amazonaws.com/pingone/public_downloads/pingfederate/9.3.1/pingfederate-9.3.1.tar.gz | tar -zxC /usr/local/ && \
