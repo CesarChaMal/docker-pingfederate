@@ -1,0 +1,13 @@
+ID=1
+Product=PingFederate
+Version=9.3
+IssueDate=2018-10-10
+Tier=Perpetual
+EnforcementType=7
+Bridge=false
+SaasProvisioning=true
+Generator=WebAPI
+SignCode=FF01
+OAuth=true
+WSTrustSTS=true
+Signature=302A02V41V80721048075D8A6E04F14D1BD3F7D884C9FF5D021451CB12AC1ACA3BCA5183EE3CA9FEBAAE9131EAB4
